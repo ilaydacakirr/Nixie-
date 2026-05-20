@@ -1,14 +1,14 @@
 var urunler = [
-    { ad: "Tişört", fiyat: 150, resim: "img/tisort.jpg" },
-    { ad: "Beyaz Tişört", fiyat: 120, resim: "img/beyazTisort.jpg" },
-    { ad: "Sweatshirt", fiyat: 350, resim: "img/Sweatshirt.jpg" },
-    { ad: "Hoodie", fiyat: 320, resim: "img/Hoodie.jpg" },
-    { ad: "Pantolon", fiyat: 400, resim: "img/pantolon.jpg" },
-    { ad: "Hırka", fiyat: 450, resim: "img/hırka.jpg" },
-    { ad: "Mont", fiyat: 1200, resim: "img/mont.jpg" },
-    { ad: "Ceket", fiyat: 800, resim: "img/ceket.jpg" },
-    { ad: "Spor Ayakkabı", fiyat: 800, resim: "img/sayakkabi.jpg" },
-    { ad: "Bot", fiyat: 1000, resim: "img/bot.jpg" }
+    { ad: "Tişört", fiyat: 150, resim: "img/tisort.jpg", aciklama: "Pamuklu kumaştan üretilmiş, günlük kullanım için ideal." },
+    { ad: "Beyaz Tişört", fiyat: 120, resim: "img/beyazTisort.jpg", aciklama: "Sade ve şık beyaz tişört, her kombine uyar." },
+    { ad: "Sweatshirt", fiyat: 350, resim: "img/Sweatshirt.jpg", aciklama: "Yumuşak içi, serin havalarda ideal tercih." },
+    { ad: "Hoodie", fiyat: 320, resim: "img/Hoodie.jpg", aciklama: "Kapüşonlu, rahat ve şık görünüm sağlar." },
+    { ad: "Pantolon", fiyat: 400, resim: "img/pantolon.jpg", aciklama: "Günlük ve ofis kullanımına uygun düz kesim pantolon." },
+    { ad: "Kot Pantolon", fiyat: 450, resim: "img/kpantolon.jpg", aciklama: "Klasik mavi kot, dayanıklı ve uzun ömürlü." },
+    { ad: "Mont", fiyat: 1200, resim: "img/mont.jpg", aciklama: "Kış ayları için kalın astarlı, rüzgar geçirmez mont." },
+    { ad: "Ceket", fiyat: 800, resim: "img/ceket.jpg", aciklama: "Mevsimlik ince ceket, şık görünüm için ideal." },
+    { ad: "Spor Ayakkabı", fiyat: 800, resim: "img/sayakkabi.jpg", aciklama: "Hafif taban, spor ve günlük kullanıma uygun." },
+    { ad: "Bot", fiyat: 1000, resim: "img/bot.jpg", aciklama: "Sağlam yapısıyla kış aylarında konfor sağlar." }
 ];
 
 function resimYolu(yol) {
@@ -80,15 +80,25 @@ if (sepetAlani) {
     } else {
         for (var i = 0; i < sepet.length; i++) {
             var p = document.createElement("p");
-            p.innerHTML = sepet[i].ad + " - " + sepet[i].fiyat + " TL";
+            p.innerHTML = sepet[i].ad + " - " + sepet[i].fiyat + " TL"
+                + " <button class='silBtn' data-index='" + i + "'>Sil</button>";
             sepetAlani.appendChild(p);
             toplam += sepet[i].fiyat;
         }
     }
 
     document.getElementById("toplam").innerHTML = "Toplam: " + toplam + " TL";
-}
 
+    document.addEventListener("click", function(e) {
+        if (e.target.className === "silBtn") {
+            var index = e.target.getAttribute("data-index");
+            var sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+            sepet.splice(index, 1);
+            localStorage.setItem("sepet", JSON.stringify(sepet));
+            window.location.reload();
+        }
+    });
+}
 
 var detayAlani = document.getElementById("detay");
 if (detayAlani) {
@@ -97,6 +107,7 @@ if (detayAlani) {
         detayAlani.innerHTML = "<img src='" + resimYolu(urun.resim) + "' alt='" + urun.ad + "'>"
             + "<h2>" + urun.ad + "</h2>"
             + "<p>Fiyat: " + urun.fiyat + " TL</p>"
+            + "<p>" + urun.aciklama + "</p>"
             + "<button id='detaySepetBtn'>Sepete Ekle</button>";
 
         document.getElementById("detaySepetBtn").addEventListener("click", function() {
@@ -107,7 +118,6 @@ if (detayAlani) {
         });
     }
 }
-
 
 var gonderBtn = document.getElementById("gonderBtn");
 if (gonderBtn) {
