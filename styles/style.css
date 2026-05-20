@@ -1,7 +1,4 @@
-/* ===== GOOGLE FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
 
-/* ===== CSS DEĞİŞKENLERİ ===== */
 :root {
     --renk-ana: #c084a8;
     --renk-koyu: #7a3f6b;
@@ -13,7 +10,6 @@
     --gecis: all 0.3s ease;
 }
 
-/* ===== GENEL ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +23,7 @@ body {
     text-align: center;
 }
 
-/* ===== NAV ===== */
+
 nav {
     background-color: var(--renk-koyu);
     color: white;
@@ -73,7 +69,7 @@ nav ul li a:hover {
     color: #ffd6eb;
 }
 
-/* ===== HERO (ANA SAYFA BAŞLIK) ===== */
+
 .hero {
     background: linear-gradient(135deg, var(--renk-koyu) 0%, var(--renk-ana) 100%);
     color: white;
@@ -94,7 +90,7 @@ nav ul li a:hover {
     opacity: 0.9;
 }
 
-/* ===== SAYFA BAŞLIKLARI ===== */
+
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
@@ -103,7 +99,7 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* ===== ÜRÜNLER ALANI ===== */
+
 #urunler,
 #anasayfaUrunler {
     display: flex;
@@ -115,7 +111,7 @@ h1 {
     padding: 0 20px;
 }
 
-/* ===== ÜRÜN KARTI ===== */
+
 .urun {
     border: 1px solid #e8d5e2;
     border-radius: 16px;
@@ -144,7 +140,7 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* ===== BUTONLAR ===== */
+
 .urun button {
     background-color: var(--renk-ana);
     color: white;
@@ -164,7 +160,7 @@ h1 {
     transform: scale(1.05);
 }
 
-/* ===== TÜM ÜRÜNLER BUTONU ===== */
+
 .tum-btn-alani {
     margin: 10px 0 60px;
 }
@@ -188,7 +184,7 @@ h1 {
     transform: scale(1.05);
 }
 
-/* ===== SEPET ===== */
+
 #sepet {
     max-width: 600px;
     margin: 20px auto;
@@ -214,7 +210,7 @@ h1 {
     margin: 20px 0 50px;
 }
 
-/* ===== DETAY SAYFASI ===== */
+
 #detay {
     max-width: 400px;
     margin: 30px auto 60px;
@@ -254,7 +250,7 @@ h1 {
     background-color: var(--renk-vurgu);
 }
 
-/* ===== İLETİŞİM FORMU ===== */
+
 .iletisim-form {
     max-width: 500px;
     margin: 20px auto 60px;
@@ -309,7 +305,7 @@ h1 {
     background-color: var(--renk-vurgu);
 }
 
-/* ===== FOOTER ===== */
+
 footer {
     background-color: var(--renk-koyu);
     color: white;
@@ -318,7 +314,7 @@ footer {
     opacity: 0.9;
 }
 
-/* ===== RESPONSİVE (MOBİL UYUMLU) ===== */
+/*responsive kısmı*/
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
