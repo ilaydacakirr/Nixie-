@@ -12,7 +12,6 @@ let urunler = [
 ];
 
 
-// ✅ ÜRÜNLER SAYFASI (TÜM ÜRÜNLER)
 let urunlerAlani = document.getElementById("urunler");
 
 if (urunlerAlani) {
@@ -29,8 +28,6 @@ if (urunlerAlani) {
 }
 
 
-// ✅ ANA SAYFA (SADECE 4 ÜRÜN)
-// DÜZELTİLDİ: id "anasayfaUrunler" (büyük U) — index.html ile eşleşmeli
 let anaAlan = document.getElementById("anasayfaUrunler");
 
 if (anaAlan) {
@@ -49,7 +46,6 @@ if (anaAlan) {
 }
 
 
-// ✅ SEPETE EKLE
 function sepeteEkle(index) {
     let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
     sepet.push(urunler[index]);
@@ -58,7 +54,7 @@ function sepeteEkle(index) {
 }
 
 
-// ✅ SEPETİ GÖSTER
+
 function sepetiGetir() {
     let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
     let alan = document.getElementById("sepet");
@@ -82,12 +78,11 @@ function sepetiGetir() {
 }
 
 
-// ✅ DETAY SAYFASINA GÖNDER
-// DÜZELTİLDİ: pages/ klasöründen çağrıldığında doğru path
+
 function detayaGit(index) {
     localStorage.setItem("seciliUrun", JSON.stringify(urunler[index]));
 
-    // Hangi sayfadan çağrıldığını anla
+
     if (window.location.pathname.includes("/pages/")) {
         window.location.href = "detay.html";
     } else {
@@ -96,7 +91,7 @@ function detayaGit(index) {
 }
 
 
-// ✅ DETAY GÖSTER
+
 function detayiGoster() {
     let urun = JSON.parse(localStorage.getItem("seciliUrun"));
     let alan = document.getElementById("detay");
@@ -111,7 +106,6 @@ function detayiGoster() {
 }
 
 
-// ✅ DETAYDAN SEPETE EKLE
 function sepeteEkleDetay() {
     let urun = JSON.parse(localStorage.getItem("seciliUrun"));
     let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
@@ -121,7 +115,7 @@ function sepeteEkleDetay() {
 }
 
 
-// ✅ İLETİŞİM FORMU KONTROL
+
 function iletisimKontrol() {
     let ad = document.getElementById("ad").value.trim();
     let email = document.getElementById("email").value.trim();
