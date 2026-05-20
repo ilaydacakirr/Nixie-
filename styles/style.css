@@ -13,7 +13,7 @@ body {
 
 
 nav {
-    background-color: #8338ec;
+    background-color: #a260ff;
     padding: 15px 30px;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ nav ul li a:hover {
 
 
 .hero {
-    background-color: #ff006e;
+    background-color:#ff6aaa;
     color: white;
     padding: 80px 20px;
     margin-bottom: 40px;
@@ -63,7 +63,7 @@ nav ul li a:hover {
 
 h1 {
     font-size: 2rem;
-    color: #ff006e;
+    color: #ff6aaa;
     margin: 40px 0 30px;
 }
 
@@ -97,7 +97,7 @@ h1 {
 }
 
 .urun h3 {
-    color: #8338ec;
+    color: #a260ff;
     margin-bottom: 8px;
     font-size: 1rem;
 }
@@ -109,7 +109,7 @@ h1 {
 }
 
 .urun button {
-    background-color: #ff006e;
+    background-color: #ff6aaa;
     color: white;
     border: none;
     padding: 7px 14px;
@@ -129,7 +129,7 @@ h1 {
 }
 
 .tum-btn {
-    background-color: #8338ec;
+    background-color: #a260ff;
     color: white;
     border: none;
     padding: 12px 35px;
@@ -140,7 +140,7 @@ h1 {
 }
 
 .tum-btn:hover {
-    background-color: #ff006e;
+    background-color: #ff6aaa;
 }
 
 
@@ -162,7 +162,7 @@ h1 {
 #toplam {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #8338ec;
+    color: #a260ff;
     margin: 20px 0 50px;
 }
 
@@ -185,7 +185,7 @@ h1 {
 }
 
 #detay h2 {
-    color: #ff006e;
+    color: #ff6aaa;
     margin-bottom: 10px;
 }
 
@@ -195,7 +195,7 @@ h1 {
 }
 
 #detay button {
-    background-color: #ff006e;
+    background-color: #ff6aaa;
     color: white;
     border: none;
     padding: 10px 30px;
@@ -205,7 +205,7 @@ h1 {
 }
 
 #detay button:hover {
-    background-color: #8338ec;
+    background-color: #a260ff;
 }
 
 
@@ -236,7 +236,7 @@ h1 {
 
 .iletisim-form button {
     width: 100%;
-    background-color: #ff006e;
+    background-color: #ff6aaa;
     color: white;
     border: none;
     padding: 12px;
@@ -247,7 +247,7 @@ h1 {
 }
 
 .iletisim-form button:hover {
-    background-color: #8338ec;
+    background-color: #a260ff;
 }
 
 
@@ -262,7 +262,7 @@ h1 {
 
 #quiz p {
     font-size: 1.1rem;
-    color: #8338ec;
+    color: #a260ff;
     margin-bottom: 20px;
     font-weight: bold;
 }
@@ -270,7 +270,7 @@ h1 {
 .secenekBtn {
     display: block;
     width: 100%;
-    background-color: #ff006e;
+    background-color: #ff6aaa;
     color: white;
     border: none;
     padding: 10px;
@@ -281,18 +281,18 @@ h1 {
 }
 
 .secenekBtn:hover {
-    background-color: #8338ec;
+    background-color:#a260ff;
 }
 
 #sonuc {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #ff006e;
+    color: #ff6aaa;
     margin: 15px 0;
 }
 
 #ileriBtn {
-    background-color: #8338ec;
+    background-color:#a260ff;
     color: white;
     border: none;
     padding: 10px 30px;
@@ -303,12 +303,12 @@ h1 {
 }
 
 #ileriBtn:hover {
-    background-color: #ff006e;
+    background-color: #ff6aaa;
 }
 
 
 footer {
-    background-color: #8338ec;
+    background-color: #a260ff;
     color: white;
     padding: 20px;
     font-size: 0.9rem;
