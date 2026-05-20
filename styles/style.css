@@ -1,0 +1,348 @@
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+/* ===== CSS DEĞİŞKENLERİ ===== */
+:root {
+    --renk-ana: #c084a8;
+    --renk-koyu: #7a3f6b;
+    --renk-acik: #f9eff5;
+    --renk-vurgu: #ff6b9d;
+    --renk-metin: #2d2d2d;
+    --renk-gri: #888;
+    --golge: 0 4px 20px rgba(192, 132, 168, 0.25);
+    --gecis: all 0.3s ease;
+}
+
+/* ===== GENEL ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--renk-metin);
+    background-color: #fff;
+    text-align: center;
+}
+
+/* ===== NAV ===== */
+nav {
+    background-color: var(--renk-koyu);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+nav h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: var(--gecis);
+}
+
+nav ul li a:hover {
+    border-bottom-color: var(--renk-vurgu);
+    color: #ffd6eb;
+}
+
+/* ===== HERO (ANA SAYFA BAŞLIK) ===== */
+.hero {
+    background: linear-gradient(135deg, var(--renk-koyu) 0%, var(--renk-ana) 100%);
+    color: white;
+    padding: 80px 20px;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* ===== SAYFA BAŞLIKLARI ===== */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--renk-koyu);
+    margin: 40px 0 30px;
+    letter-spacing: 1px;
+}
+
+/* ===== ÜRÜNLER ALANI ===== */
+#urunler,
+#anasayfaUrunler {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+/* ===== ÜRÜN KARTI ===== */
+.urun {
+    border: 1px solid #e8d5e2;
+    border-radius: 16px;
+    padding: 25px 20px;
+    width: 210px;
+    background-color: var(--renk-acik);
+    box-shadow: var(--golge);
+    transition: var(--gecis);
+}
+
+.urun:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(192, 132, 168, 0.35);
+}
+
+.urun h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--renk-koyu);
+    margin-bottom: 10px;
+}
+
+.urun p {
+    font-size: 1rem;
+    color: var(--renk-gri);
+    margin-bottom: 15px;
+}
+
+/* ===== BUTONLAR ===== */
+.urun button {
+    background-color: var(--renk-ana);
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    cursor: pointer;
+    margin: 5px 3px 0;
+    border-radius: 25px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: var(--gecis);
+}
+
+.urun button:hover {
+    background-color: var(--renk-koyu);
+    transform: scale(1.05);
+}
+
+/* ===== TÜM ÜRÜNLER BUTONU ===== */
+.tum-btn-alani {
+    margin: 10px 0 60px;
+}
+
+.tum-btn {
+    background-color: var(--renk-koyu);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--gecis);
+}
+
+.tum-btn:hover {
+    background-color: var(--renk-vurgu);
+    transform: scale(1.05);
+}
+
+/* ===== SEPET ===== */
+#sepet {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+#sepet p {
+    background-color: var(--renk-acik);
+    border: 1px solid #e8d5e2;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+#toplam {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--renk-koyu);
+    margin: 20px 0 50px;
+}
+
+/* ===== DETAY SAYFASI ===== */
+#detay {
+    max-width: 400px;
+    margin: 30px auto 60px;
+    background-color: var(--renk-acik);
+    border: 1px solid #e8d5e2;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--golge);
+}
+
+#detay h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--renk-koyu);
+    margin-bottom: 15px;
+}
+
+#detay p {
+    font-size: 1.1rem;
+    color: var(--renk-gri);
+    margin-bottom: 25px;
+}
+
+#detay button {
+    background-color: var(--renk-koyu);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--gecis);
+}
+
+#detay button:hover {
+    background-color: var(--renk-vurgu);
+}
+
+/* ===== İLETİŞİM FORMU ===== */
+.iletisim-form {
+    max-width: 500px;
+    margin: 20px auto 60px;
+    background-color: var(--renk-acik);
+    border: 1px solid #e8d5e2;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--golge);
+    text-align: left;
+}
+
+.iletisim-form input,
+.iletisim-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    border: 1px solid #dcc7d5;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Lato', sans-serif;
+    background: white;
+    transition: var(--gecis);
+    display: block;
+}
+
+.iletisim-form input:focus,
+.iletisim-form textarea:focus {
+    outline: none;
+    border-color: var(--renk-ana);
+    box-shadow: 0 0 0 3px rgba(192, 132, 168, 0.2);
+}
+
+.iletisim-form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.iletisim-form button {
+    width: 100%;
+    background-color: var(--renk-koyu);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--gecis);
+}
+
+.iletisim-form button:hover {
+    background-color: var(--renk-vurgu);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--renk-koyu);
+    color: white;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ===== RESPONSİVE (MOBİL UYUMLU) ===== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .urun {
+        width: 160px;
+        padding: 18px 14px;
+    }
+
+    #urunler,
+    #anasayfaUrunler {
+        gap: 15px;
+    }
+}
