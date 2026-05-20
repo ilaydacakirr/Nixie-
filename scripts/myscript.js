@@ -1,133 +1,186 @@
-let urunler = [
-    { ad: "Tişört", fiyat: 150 },
-    { ad: "Beyaz Tişört", fiyat: 120 },
-    { ad: "Sweatshirt", fiyat: 350 },
-    { ad: "Hoodie", fiyat: 320 },
-    { ad: "Pantolon", fiyat: 400 },
-    { ad: "Kot Pantolon", fiyat: 450 },
-    { ad: "Mont", fiyat: 1200 },
-    { ad: "Ceket", fiyat: 800 },
-    { ad: "Spor Ayakkabı", fiyat: 800 },
-    { ad: "Bot", fiyat: 1000 }
+var urunler = [
+    { ad: "Tişört", fiyat: 150, resim: "img/tisort.jpg" },
+    { ad: "Beyaz Tişört", fiyat: 120, resim: "img/beyazTisort.jpg" },
+    { ad: "Sweatshirt", fiyat: 350, resim: "img/Sweatshirt.jpg" },
+    { ad: "Hoodie", fiyat: 320, resim: "img/Hoodie.jpg" },
+    { ad: "Pantolon", fiyat: 400, resim: "img/pantolon.jpg" },
+    { ad: "Kot Pantolon", fiyat: 450, resim: "img/kpantolon.jpg" },
+    { ad: "Mont", fiyat: 1200, resim: "img/mont.jpg" },
+    { ad: "Ceket", fiyat: 800, resim: "img/ceket.jpg" },
+    { ad: "Spor Ayakkabı", fiyat: 800, resim: "img/sayakkabi.jpg" },
+    { ad: "Bot", fiyat: 1000, resim: "img/bot.jpg" }
 ];
 
 
-let urunlerAlani = document.getElementById("urunler");
-
-if (urunlerAlani) {
-    for (let i = 0; i < urunler.length; i++) {
-        urunlerAlani.innerHTML += `
-        <div class="urun">
-            <h3>${urunler[i].ad}</h3>
-            <p>Fiyat: ${urunler[i].fiyat} TL</p>
-            <button onclick="sepeteEkle(${i})">Sepete Ekle</button>
-            <button onclick="detayaGit(${i})">Detay</button>
-        </div>
-        `;
+function resimYolu(yol) {
+    if (window.location.pathname.includes("/pages/")) {
+        return "../" + yol;
     }
+    return yol;
 }
 
 
-let anaAlan = document.getElementById("anasayfaUrunler");
-
+var anaAlan = document.getElementById("anasayfaUrunler");
 if (anaAlan) {
-    let secilen = urunler.slice(0, 4);
-
-    for (let i = 0; i < secilen.length; i++) {
-        anaAlan.innerHTML += `
-        <div class="urun">
-            <h3>${secilen[i].ad}</h3>
-            <p>Fiyat: ${secilen[i].fiyat} TL</p>
-            <button onclick="sepeteEkle(${i})">Sepete Ekle</button>
-            <button onclick="detayaGit(${i})">Detay</button>
-        </div>
-        `;
+    for (var i = 0; i < 4; i++) {
+        var div = document.createElement("div");
+        div.className = "urun";
+        div.innerHTML = "<img src='" + resimYolu(urunler[i].resim) + "' alt='" + urunler[i].ad + "'>"
+            + "<h3>" + urunler[i].ad + "</h3>"
+            + "<p>Fiyat: " + urunler[i].fiyat + " TL</p>"
+            + "<button class='sepetBtn' data-index='" + i + "'>Sepete Ekle</button>"
+            + "<button class='detayBtn' data-index='" + i + "'>Detay</button>";
+        anaAlan.appendChild(div);
     }
 }
 
 
-function sepeteEkle(index) {
-    let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
-    sepet.push(urunler[index]);
-    localStorage.setItem("sepet", JSON.stringify(sepet));
-    alert(urunler[index].ad + " sepete eklendi!");
+var urunlerAlani = document.getElementById("urunler");
+if (urunlerAlani) {
+    for (var i = 0; i < urunler.length; i++) {
+        var div = document.createElement("div");
+        div.className = "urun";
+        div.innerHTML = "<img src='" + resimYolu(urunler[i].resim) + "' alt='" + urunler[i].ad + "'>"
+            + "<h3>" + urunler[i].ad + "</h3>"
+            + "<p>Fiyat: " + urunler[i].fiyat + " TL</p>"
+            + "<button class='sepetBtn' data-index='" + i + "'>Sepete Ekle</button>"
+            + "<button class='detayBtn' data-index='" + i + "'>Detay</button>";
+        urunlerAlani.appendChild(div);
+    }
 }
 
 
+document.addEventListener("click", function(e) {
+    if (e.target.className === "sepetBtn") {
+        var index = e.target.getAttribute("data-index");
+        var sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+        sepet.push(urunler[index]);
+        localStorage.setItem("sepet", JSON.stringify(sepet));
+        alert(urunler[index].ad + " sepete eklendi!");
+    }
 
-function sepetiGetir() {
-    let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
-    let alan = document.getElementById("sepet");
-    let toplam = 0;
-
-    if (alan) {
-        alan.innerHTML = "";
-
-        if (sepet.length === 0) {
-            alan.innerHTML = "<p style='color:#888; text-align:center;'>Sepetiniz boş.</p>";
+    if (e.target.className === "detayBtn") {
+        var index = e.target.getAttribute("data-index");
+        localStorage.setItem("seciliUrun", JSON.stringify(urunler[index]));
+        if (window.location.pathname.includes("/pages/")) {
+            window.location.href = "detay.html";
+        } else {
+            window.location.href = "pages/detay.html";
         }
+    }
+});
 
-        for (let i = 0; i < sepet.length; i++) {
-            alan.innerHTML += `<p>${sepet[i].ad} <span>${sepet[i].fiyat} TL</span></p>`;
+
+var sepetAlani = document.getElementById("sepet");
+if (sepetAlani) {
+    var sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+    var toplam = 0;
+
+    if (sepet.length === 0) {
+        sepetAlani.innerHTML = "<p>Sepetiniz boş.</p>";
+    } else {
+        for (var i = 0; i < sepet.length; i++) {
+            var p = document.createElement("p");
+            p.innerHTML = sepet[i].ad + " - " + sepet[i].fiyat + " TL";
+            sepetAlani.appendChild(p);
             toplam += sepet[i].fiyat;
         }
+    }
 
-        document.getElementById("toplam").innerHTML =
-            "Toplam: " + toplam + " TL";
+    document.getElementById("toplam").innerHTML = "Toplam: " + toplam + " TL";
+}
+
+
+var detayAlani = document.getElementById("detay");
+if (detayAlani) {
+    var urun = JSON.parse(localStorage.getItem("seciliUrun"));
+    if (urun) {
+        detayAlani.innerHTML = "<img src='" + resimYolu(urun.resim) + "' alt='" + urun.ad + "'>"
+            + "<h2>" + urun.ad + "</h2>"
+            + "<p>Fiyat: " + urun.fiyat + " TL</p>"
+            + "<button id='detaySepetBtn'>Sepete Ekle</button>";
+
+        document.getElementById("detaySepetBtn").addEventListener("click", function() {
+            var sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+            sepet.push(urun);
+            localStorage.setItem("sepet", JSON.stringify(sepet));
+            alert(urun.ad + " sepete eklendi!");
+        });
     }
 }
 
 
+var gonderBtn = document.getElementById("gonderBtn");
+if (gonderBtn) {
+    gonderBtn.addEventListener("click", function() {
+        var ad = document.getElementById("ad").value;
+        var email = document.getElementById("email").value;
+        var mesaj = document.getElementById("mesaj").value;
 
-function detayaGit(index) {
-    localStorage.setItem("seciliUrun", JSON.stringify(urunler[index]));
+        if (ad === "" || email === "" || mesaj === "") {
+            alert("Lütfen tüm alanları doldurunuz.");
+            return;
+        }
 
-
-    if (window.location.pathname.includes("/pages/")) {
-        window.location.href = "detay.html";
-    } else {
-        window.location.href = "pages/detay.html";
-    }
+        alert("Mesajınız gönderildi! Teşekkürler, " + ad + ".");
+        document.getElementById("ad").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("mesaj").value = "";
+    });
 }
 
+/*oyun*/
+var sorular = [
+    { soru: "Hangi renk her kıyafetle uyum sağlar?", secenekler: ["Sarı", "Siyah", "Turuncu", "Mor"], dogru: 1 },
+    { soru: "Kot pantolon hangi mevsimde daha çok tercih edilir?", secenekler: ["Yaz", "Kış", "İlkbahar", "Her mevsim"], dogru: 3 },
+    { soru: "Hoodie ile en çok hangi alt giysi kombinlenir?", secenekler: ["Etek", "Pantolon", "Şort", "Hepsi"], dogru: 3 },
+    { soru: "Spor ayakkabı hangi tarz kıyafetle uyumludur?", secenekler: ["Casual", "Spor", "Günlük", "Hepsi"], dogru: 3 },
+    { soru: "Mont hangi mevsimde kullanılır?", secenekler: ["Yaz", "İlkbahar", "Kış", "Sonbahar"], dogru: 2 }
+];
 
+var mevcutSoru = 0;
+var puan = 0;
 
-function detayiGoster() {
-    let urun = JSON.parse(localStorage.getItem("seciliUrun"));
-    let alan = document.getElementById("detay");
+var soruAlani = document.getElementById("soru");
+if (soruAlani) {
+    soruGoster();
 
-    if (urun && alan) {
-        alan.innerHTML = `
-            <h2>${urun.ad}</h2>
-            <p>Fiyat: ${urun.fiyat} TL</p>
-            <button onclick="sepeteEkleDetay()">Sepete Ekle</button>
-        `;
-    }
+    document.getElementById("ileriBtn").addEventListener("click", function() {
+        mevcutSoru++;
+        if (mevcutSoru < sorular.length) {
+            soruGoster();
+        } else {
+            document.getElementById("soru").innerHTML = "Quiz bitti!";
+            document.getElementById("secenekler").innerHTML = "";
+            document.getElementById("sonuc").innerHTML = "Puanın: " + puan + " / " + sorular.length;
+            document.getElementById("ileriBtn").style.display = "none";
+        }
+    });
 }
 
+function soruGoster() {
+    var s = sorular[mevcutSoru];
+    document.getElementById("soru").innerHTML = (mevcutSoru + 1) + ". " + s.soru;
+    document.getElementById("secenekler").innerHTML = "";
+    document.getElementById("sonuc").innerHTML = "";
 
-function sepeteEkleDetay() {
-    let urun = JSON.parse(localStorage.getItem("seciliUrun"));
-    let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
-    sepet.push(urun);
-    localStorage.setItem("sepet", JSON.stringify(sepet));
-    alert(urun.ad + " sepete eklendi!");
-}
-
-
-
-function iletisimKontrol() {
-    let ad = document.getElementById("ad").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let mesaj = document.getElementById("mesaj").value.trim();
-
-    if (ad === "" || email === "" || mesaj === "") {
-        alert("Lütfen tüm alanları doldurunuz.");
-        return;
+    for (var i = 0; i < s.secenekler.length; i++) {
+        var btn = document.createElement("button");
+        btn.innerHTML = s.secenekler[i];
+        btn.className = "secenekBtn";
+        btn.setAttribute("data-index", i);
+        document.getElementById("secenekler").appendChild(btn);
     }
 
-    alert("Mesajınız başarıyla gönderildi! Teşekkürler, " + ad + ".");
-    document.getElementById("ad").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("mesaj").value = "";
+    document.getElementById("secenekler").addEventListener("click", function(e) {
+        if (e.target.className === "secenekBtn") {
+            var secilen = parseInt(e.target.getAttribute("data-index"));
+            if (secilen === sorular[mevcutSoru].dogru) {
+                document.getElementById("sonuc").innerHTML = "Doğru!";
+                puan++;
+            } else {
+                document.getElementById("sonuc").innerHTML = "Yanlış!";
+            }
+        }
+    });
 }
