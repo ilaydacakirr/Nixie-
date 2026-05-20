@@ -11,7 +11,6 @@ var urunler = [
     { ad: "Bot", fiyat: 1000, resim: "img/bot.jpg" }
 ];
 
-
 function resimYolu(yol) {
     if (window.location.pathname.includes("/pages/")) {
         return "../" + yol;
