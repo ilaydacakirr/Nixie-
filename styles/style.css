@@ -157,6 +157,10 @@ h1 {
     padding: 12px;
     margin-bottom: 10px;
     text-align: left;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 .silBtn {
     background-color: #ff6aaa;
@@ -166,7 +170,7 @@ h1 {
     border-radius: 15px;
     cursor: pointer;
     font-size: 0.8rem;
-    margin-left: auto;
+ 
 }
 
 .silBtn:hover {
