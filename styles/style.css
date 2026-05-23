@@ -158,14 +158,6 @@ h1 {
     margin-bottom: 10px;
     text-align: left;
 }
-
-#toplam {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #a260ff;
-    margin: 20px 0 50px;
-}
-
 .silBtn {
     background-color: #ff6aaa;
     color: white;
@@ -179,6 +171,28 @@ h1 {
 
 .silBtn:hover {
     background-color: #a260ff;
+}
+#toplam {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #a260ff;
+    margin: 20px 0 50px;
+}
+
+#onaylaBtn {
+    background-color: #a260ff;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+#onaylaBtn:hover {
+    background-color: #ff6aaa;
 }
 
 #detay {
