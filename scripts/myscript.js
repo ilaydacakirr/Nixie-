@@ -86,7 +86,17 @@ if (sepetAlani) {
             toplam += sepet[i].fiyat;
         }
     }
-
+    
+var onaylaBtn = document.getElementById("onaylaBtn");
+if (onaylaBtn) {
+    onaylaBtn.addEventListener("click", function() {
+        localStorage.removeItem("sepet");
+        sepetAlani.innerHTML = "<p>✅ Siparişiniz alındı, teşekkürler!</p>";
+        document.getElementById("toplam").innerHTML = "";
+        onaylaBtn.style.display = "none";
+    });
+}
+    
     document.getElementById("toplam").innerHTML = "Toplam: " + toplam + " TL";
 
     document.addEventListener("click", function(e) {
