@@ -166,6 +166,20 @@ h1 {
     margin: 20px 0 50px;
 }
 
+.silBtn {
+    background-color: #ff6aaa;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.silBtn:hover {
+    background-color: #a260ff;
+}
 
 #detay {
     max-width: 380px;
