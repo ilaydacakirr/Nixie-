@@ -63,7 +63,7 @@ nav ul li a:hover {
 
 h1 {
     font-size: 2rem;
-    color: #fc14b3; 
+    color: #fc4996; 
     margin: 40px 0 30px;
 }
 
@@ -174,7 +174,7 @@ h1 {
     border-radius: 15px;
     cursor: pointer;
     font-size: 0.8rem;
-    margin-left: 50px;
+    margin-left: 150px;
 }
 
 .silBtn:hover {
